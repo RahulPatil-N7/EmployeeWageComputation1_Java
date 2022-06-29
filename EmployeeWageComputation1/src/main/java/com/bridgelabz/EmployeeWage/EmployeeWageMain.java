@@ -6,7 +6,9 @@ public class EmployeeWageMain {
 	public static final int wagePerHour = 20;
 	public static final int workingDays = 20;
 	public static final int hrsInMonth = 100;
-    public static void main(String[] args) {
+    
+	public void calculateWage()
+	{
 		//printing welcome message
 		System.out.println("Welcome To Employee Wage Compuatation Program.");
 		int workingHrs = 0;
@@ -37,4 +39,10 @@ public class EmployeeWageMain {
 		int totalEmpWage = totalEmpHrs * wagePerHour;
 		System.out.println("\nTotal Employee Wage is: " + totalEmpWage); 
 }
+	public static void main(String[] args)
+	{
+		//creating class object
+		EmployeeWageMain wage=new EmployeeWageMain();
+		wage.calculateWage(); //calling function using object
+	}
 }
