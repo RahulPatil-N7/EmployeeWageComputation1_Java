@@ -3,15 +3,9 @@ package com.bridgelabz.EmployeeWage;
 public class EmployeeWageMain {
     public static final int isPartTime = 1;
 	public static final int isFullTime = 2;
-	public static final int wagePerHour = 20;
-	public static final int workingDays = 20;
-	public static final int hrsInMonth = 100;
-    
-	public void calculateWage()
+    public void calculateWage(String company,int wagePerHour,int workingDays,int hrsInMonth)
 	{
-		//printing welcome message
-		System.out.println("Welcome To Employee Wage Compuatation Program.");
-		int workingHrs = 0;
+        int workingHrs = 0;
 		int dailyWage = 0,totalEmpHrs=0,totalWorkingDays=0;
 		while(totalEmpHrs <= hrsInMonth && totalWorkingDays < workingDays) {
 			totalWorkingDays++;
@@ -37,12 +31,17 @@ public class EmployeeWageMain {
 		System.out.println("Day:" + totalWorkingDays + " Worked Hrs:" + workingHrs+" Daily Wage is:"+dailyWage);		
        }
 		int totalEmpWage = totalEmpHrs * wagePerHour;
-		System.out.println("\nTotal Employee Wage is: " + totalEmpWage); 
+		System.out.println("\nTotal Employee Wage of company : " + company+" is :" +totalEmpWage); 
+		
 }
 	public static void main(String[] args)
 	{
+		//printing welcome message
+		System.out.println("Welcome To Employee Wage Compuatation Program.");
 		//creating class object
 		EmployeeWageMain wage=new EmployeeWageMain();
-		wage.calculateWage(); //calling function using object
+		wage.calculateWage("D MART",20,20,10); //calling function using object
+	    wage.calculateWage("Jio Mart",15,22,20);
+  	    wage.calculateWage("Big Basket",25,24,30);
 	}
 }
