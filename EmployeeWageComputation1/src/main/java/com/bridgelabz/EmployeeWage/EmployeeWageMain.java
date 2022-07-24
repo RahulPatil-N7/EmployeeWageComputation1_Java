@@ -46,6 +46,7 @@ public class EmployeeWageMain implements IEmployeeWage {
 					System.out.println("\nEmployee is Absent");
 			}
 			totalEmpHrs += workingHrs;
+			//calculating daily wage
 			dailyWage = workingHrs * companyEmpWage.wagePerHour;
 			System.out.println("Day:" + totalWorkingDays + " Worked Hrs:" + workingHrs+ " Daily Wage :"+dailyWage);		
 		}
