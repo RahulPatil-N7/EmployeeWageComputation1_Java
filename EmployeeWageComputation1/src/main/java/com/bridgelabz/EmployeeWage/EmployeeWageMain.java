@@ -50,7 +50,7 @@ public class EmployeeWageMain {
 			totalEmpHrs += workingHrs;
 			dailyWage = workingHrs * companyEmpWage.wagePerHour;
 			System.out.println("Day:" + totalWorkingDays + " Worked Hrs:" + workingHrs+ " Daily Wage :"+dailyWage);		
-        }
+		}
 		return totalEmpHrs * companyEmpWage.wagePerHour; 
 	}
     
