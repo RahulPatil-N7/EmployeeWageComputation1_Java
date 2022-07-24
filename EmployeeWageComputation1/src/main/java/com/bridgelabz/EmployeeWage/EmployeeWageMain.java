@@ -1,7 +1,7 @@
 package com.bridgelabz.EmployeeWage;
 
 public class EmployeeWageMain {
-    public static final int isPartTime = 1;
+	public static final int isPartTime = 1;
 	public static final int isFullTime = 2;
 	
 	private int numOfCompany = 0;
@@ -23,6 +23,10 @@ public class EmployeeWageMain {
 		}
 	}
 	
+	/*This method uses random to check if employee is present or 
+	 *absent while checking condition that total 100 working hrs
+	 *& total 20 working days are reached.Then returns total employee 
+	 *wage */
 	private int calculateWage(CompanyEmpWage companyEmpWage) {
     	int workingHrs = 0;
 		int dailyWage = 0,totalEmpHrs = 0,totalWorkingDays = 0;
@@ -30,24 +34,23 @@ public class EmployeeWageMain {
 			totalWorkingDays++;
 			//using random() to check attendance 
 			int empCheck = (int) (Math.floor(Math.random() * 10) % 3);
-	
-				switch(empCheck) {
-					case isPartTime:
-						workingHrs = 4;
-						System.out.println("\nEmployee is Present for "+workingHrs+" Hrs.");
-						break;
-					case isFullTime:
-						workingHrs = 8;
-						System.out.println("\nEmployee is Present for "+workingHrs+" Hrs.");
-						break;
-					default:	
-						workingHrs = 0;
-						System.out.println("\nEmployee is Absent");
-				}
-				totalEmpHrs += workingHrs;
-				dailyWage = workingHrs * companyEmpWage.wagePerHour;
-				System.out.println("Day:" + totalWorkingDays + " Worked Hrs:" + workingHrs+ " Daily Wage :"+dailyWage);		
-       }
+			switch(empCheck) {
+				case isPartTime:
+					workingHrs = 4;
+					System.out.println("\nEmployee is Present for "+workingHrs+" Hrs.");
+					break;
+				case isFullTime:
+					workingHrs = 8;
+					System.out.println("\nEmployee is Present for "+workingHrs+" Hrs.");
+					break;
+				default:	
+					workingHrs = 0;
+					System.out.println("\nEmployee is Absent");
+			}
+			totalEmpHrs += workingHrs;
+			dailyWage = workingHrs * companyEmpWage.wagePerHour;
+			System.out.println("Day:" + totalWorkingDays + " Worked Hrs:" + workingHrs+ " Daily Wage :"+dailyWage);		
+        }
 		return totalEmpHrs * companyEmpWage.wagePerHour; 
 	}
     

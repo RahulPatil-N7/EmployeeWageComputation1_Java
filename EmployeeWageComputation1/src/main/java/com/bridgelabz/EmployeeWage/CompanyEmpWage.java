@@ -14,7 +14,8 @@ public class CompanyEmpWage {
 		this.workingDays = workingDays;
 		this.hrsInMonth = hrsInMonth;
 	}
-
+	
+    //setter method for totalEmpWage 
 	public void setTotalEmpWage(int totalEmpWage) {
 		this.totalEmpWage = totalEmpWage;
 	}
