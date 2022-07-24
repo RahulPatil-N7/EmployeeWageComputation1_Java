@@ -1,6 +1,6 @@
 package com.bridgelabz.EmployeeWage;
 
-public class EmployeeWageMain {
+public class EmployeeWageMain implements IEmployeeWage {
 	public static final int isPartTime = 1;
 	public static final int isFullTime = 2;
 	
@@ -11,7 +11,7 @@ public class EmployeeWageMain {
 		companyEmpWageArray = new CompanyEmpWage[5];
 	}
 	
-	private void addCompanyEmpWage(String company, int wagePerHour, int workingDays, int hrsInMonth) {
+	public void addCompanyEmpWage(String company, int wagePerHour, int workingDays, int hrsInMonth) {
 		companyEmpWageArray[numOfCompany] = new CompanyEmpWage(company,wagePerHour,workingDays,hrsInMonth);
 		numOfCompany++;
 	}
@@ -27,7 +27,7 @@ public class EmployeeWageMain {
 	 *absent while checking condition that total 100 working hrs
 	 *& total 20 working days are reached.Then returns total employee 
 	 *wage */
-	private int calculateWage(CompanyEmpWage companyEmpWage) {
+	public int calculateWage(CompanyEmpWage companyEmpWage) {
     	int workingHrs = 0;
 		int dailyWage = 0,totalEmpHrs = 0,totalWorkingDays = 0;
 		while(totalEmpHrs <= companyEmpWage.hrsInMonth && totalWorkingDays < companyEmpWage.workingDays) {
