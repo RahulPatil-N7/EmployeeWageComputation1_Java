@@ -17,7 +17,6 @@ public class EmployeeWageMain implements IEmployeeWage {
 		for (int i = 0; i < companyList.size(); i++) {
 			CompanyEmpWage companyEmpWage = companyList.get(i);
 			companyEmpWage.setTotalEmpWage(this.calculateWage(companyEmpWage));
-			System.out.println(companyEmpWage);
 		}
 	}
 	
@@ -27,7 +26,7 @@ public class EmployeeWageMain implements IEmployeeWage {
 	 *wage */
 	public int calculateWage(CompanyEmpWage companyEmpWage) {
     	int workingHrs = 0;
-		int dailyWage = 0,totalEmpHrs = 0,totalWorkingDays = 0;
+		int totalEmpHrs = 0,totalWorkingDays = 0;
 		while(totalEmpHrs <= companyEmpWage.hrsInMonth && totalWorkingDays < companyEmpWage.workingDays) {
 			totalWorkingDays++;
 			//using random() to check attendance 
@@ -35,33 +34,48 @@ public class EmployeeWageMain implements IEmployeeWage {
 			switch(empCheck) {
 				case isPartTime:
 					workingHrs = 4;
-					System.out.println("\nEmployee is Present for "+workingHrs+" Hrs.");
 					break;
 				case isFullTime:
 					workingHrs = 8;
-					System.out.println("\nEmployee is Present for "+workingHrs+" Hrs.");
 					break;
 				default:	
 					workingHrs = 0;
-					System.out.println("\nEmployee is Absent");
 			}
 			totalEmpHrs += workingHrs;
-			//calculating daily wage
-			dailyWage = workingHrs * companyEmpWage.wagePerHour;
-			System.out.println("Day:" + totalWorkingDays + " Worked Hrs:" + workingHrs+ " Daily Wage :"+dailyWage);		
+			//dailyWage = workingHrs * companyEmpWage.wagePerHour;
+			//System.out.println("Day:" + totalWorkingDays + " Worked Hrs:" + workingHrs+ " Daily Wage :"+dailyWage);		
 		}
 		return totalEmpHrs * companyEmpWage.wagePerHour; 
 	}
     
+	public void getTotalEmpWage(String companyName) {
+		for (int i = 0; i < companyList.size(); i++) {
+			String name = companyList.get(i).company;
+			if (name.equals(companyName)) {
+				int totalWage = companyList.get(i).totalEmpWage;
+				System.out.println("-->Total Employee Wage of "+ companyName +" is :" + totalWage);
+				break;
+			} 
+			else {
+				continue;
+			}
+		}
+	 }
+	
 	public static void main(String[] args) {
 		//printing welcome message
-		System.out.println("Welcome To Employee Wage Compuatation Program.");
+		System.out.println("Welcome To Employee Wage Compuatation Program.\n");
 		//creating class object
 		EmployeeWageMain wage = new EmployeeWageMain();
 		//calculating wage for multiple companies using object
-		wage.addCompanyEmpWage("DMart",20,2,10);
-		wage.addCompanyEmpWage("Jio Mart",10,4,20);
-		wage.addCompanyEmpWage("Big Basket",24,15,15);
+		wage.addCompanyEmpWage("DMart",20,24,120);
+		wage.addCompanyEmpWage("Jio Mart",10,20,100);
+		wage.addCompanyEmpWage("Big Basket",24,22,80);
 		wage.calculateWage();
+		/* Getting the total wage when queried 
+		 * by company */
+		wage.getTotalEmpWage("DMart");
+		wage.getTotalEmpWage("Jio Mart");
+		wage.getTotalEmpWage("Big Basket");
 	}
 }
