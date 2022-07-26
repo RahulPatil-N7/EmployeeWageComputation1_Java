@@ -19,10 +19,5 @@ public class CompanyEmpWage {
 	public void setTotalEmpWage(int totalEmpWage) {
 		this.totalEmpWage = totalEmpWage;
 	}
-	
-    public String toString() {
-    	return "\nTotal Employee Wage of company : "  + company+" is :" +totalEmpWage;
-    }
-	
 }
 
